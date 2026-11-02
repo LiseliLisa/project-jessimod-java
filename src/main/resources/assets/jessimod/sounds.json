@@ -1,0 +1,13 @@
+{
+  "creeper_warning": {
+    "sounds": [
+      {
+        "name": "jessimod:creeper_warning",
+        "volume": 1.0,
+        "pitch": 1.0,
+        "weight": 1,
+        "stream": false
+      }
+    ]
+  }
+}
