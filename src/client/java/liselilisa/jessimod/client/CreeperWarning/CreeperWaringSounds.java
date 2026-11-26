@@ -1,17 +1,17 @@
 
-package liselilisa.jessimod.client;
+package liselilisa.jessimod.client.CreeperWarning;
 
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
 
-public final class JessiModSounds {
+public final class CreeperWaringSounds {
 
     public static final SoundEvent CREEPER_WARNING =
             register("creeper_warning");
 
-    private JessiModSounds() {}
+    private CreeperWaringSounds() {}
 
     private static SoundEvent register(String name) {
         Identifier id = Identifier.fromNamespaceAndPath(

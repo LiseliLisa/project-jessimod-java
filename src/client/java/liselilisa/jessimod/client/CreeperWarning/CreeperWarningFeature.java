@@ -1,10 +1,9 @@
 
-package liselilisa.jessimod.client;
+package liselilisa.jessimod.client.CreeperWarning;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.phys.Vec3;
 
@@ -12,7 +11,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.logging.Logger;
 
 public final class CreeperWarningFeature {
 
@@ -40,7 +38,7 @@ public final class CreeperWarningFeature {
         }
 
         if (client.player == null || client.level == null ||
-                !ModFeatures.creeperWarningEnabled) {
+                !CreeperFileHandler.creeperWarningEnabled) {
             tracked.clear();
             return;
         }
@@ -121,7 +119,7 @@ public final class CreeperWarningFeature {
 
     public static void playWarning(Minecraft client) {
 
-        float volume = ModFeatures.creeperWarningVolume;
+        float volume = CreeperFileHandler.creeperWarningVolume;
 
         if (volume <= 0.0F) {
             return;
@@ -129,7 +127,7 @@ public final class CreeperWarningFeature {
 
         client.getSoundManager().play(
                 SimpleSoundInstance.forUI(
-                        JessiModSounds.CREEPER_WARNING,
+                        CreeperWaringSounds.CREEPER_WARNING,
                         1.0F,   // Pitch
                         volume  // Volume (0.0 - 1.0)
                 )

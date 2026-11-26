@@ -1,5 +1,5 @@
 
-package liselilisa.jessimod.client;
+package liselilisa.jessimod.client.CreeperWarning;
 
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.components.Button;
@@ -27,8 +27,8 @@ public class CreeperSettingsScreen extends Screen {
                 Button.builder(
                                 Component.literal(getToggleText()),
                                 button -> {
-                                    ModFeatures.creeperWarningEnabled =
-                                            !ModFeatures.creeperWarningEnabled;
+                                    CreeperFileHandler.creeperWarningEnabled =
+                                            !CreeperFileHandler.creeperWarningEnabled;
 
                                     button.setMessage(
                                             Component.literal(getToggleText())
@@ -73,7 +73,7 @@ public class CreeperSettingsScreen extends Screen {
 
     private String getToggleText() {
         return "Creeper Warning: " +
-                (ModFeatures.creeperWarningEnabled ? "ON" : "OFF");
+                (CreeperFileHandler.creeperWarningEnabled ? "ON" : "OFF");
     }
 
     @Override
@@ -103,7 +103,7 @@ public class CreeperSettingsScreen extends Screen {
     public void onClose() {
 
         // Save settings when leaving this submenu.
-        ModFeatures.save();
+        CreeperFileHandler.save();
 
         // Return to the JessiMod main menu.
         this.minecraft.gui.setScreen(this.parent);
@@ -119,7 +119,7 @@ public class CreeperSettingsScreen extends Screen {
                     width,
                     20,
                     Component.empty(),
-                    ModFeatures.creeperWarningVolume
+                    CreeperFileHandler.creeperWarningVolume
             );
 
             updateMessage();
@@ -139,7 +139,7 @@ public class CreeperSettingsScreen extends Screen {
 
         @Override
         protected void applyValue() {
-            ModFeatures.creeperWarningVolume =
+            CreeperFileHandler.creeperWarningVolume =
                     (float) this.value;
         }
     }

@@ -1,5 +1,5 @@
 
-package liselilisa.jessimod.client;
+package liselilisa.jessimod.client.CreeperWarning;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -15,7 +15,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public final class ModFeatures {
+public final class CreeperFileHandler {
 
     private static final Gson GSON = new GsonBuilder()
             .setPrettyPrinting()
@@ -24,13 +24,13 @@ public final class ModFeatures {
     private static final Path CONFIG_FILE =
             FabricLoader.getInstance()
                     .getConfigDir()
-                    .resolve("jessimod.json");
+                    .resolve("JessiMod_CreeperSettings.json");
 
     // Default values
     public static boolean creeperWarningEnabled = true;
     public static float creeperWarningVolume = 0.65F;
 
-    private ModFeatures() {}
+    private CreeperFileHandler() {}
 
     public static void load() {
 
