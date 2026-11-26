@@ -1,6 +1,9 @@
 
 package liselilisa.jessimod.client;
 
+import liselilisa.jessimod.client.CreeperWarning.CreeperSettingsScreen;
+import liselilisa.jessimod.client.CreeperWarning.CreeperFileHandler;
+import liselilisa.jessimod.client.SoundSettings.SoundsSettingScreen;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -29,7 +32,17 @@ public class ModMenuScreen extends Screen {
                                         new CreeperSettingsScreen(this)
                                 )
                         )
-                        .bounds(centerX - 100, centerY - 20, 200, 20)
+                        .bounds(centerX - 100, centerY - 40, 200, 20)
+                        .build()
+        );
+        this.addRenderableWidget(
+                Button.builder(
+                                Component.literal("Sound Settings..."),
+                                button -> this.minecraft.gui.setScreen(
+                                        new SoundsSettingScreen(this)
+                                )
+                        )
+                        .bounds(centerX - 100, centerY -10, 200, 20)
                         .build()
         );
 
@@ -39,7 +52,7 @@ public class ModMenuScreen extends Screen {
                                 Component.literal("Done"),
                                 button -> this.onClose()
                         )
-                        .bounds(centerX - 100, centerY + 20, 200, 20)
+                        .bounds(centerX - 100, centerY + 60, 200, 20)
                         .build()
         );
     }
@@ -69,7 +82,7 @@ public class ModMenuScreen extends Screen {
 
     @Override
     public void onClose() {
-        ModFeatures.save();
+        CreeperFileHandler.save();
         this.minecraft.gui.setScreen(this.parent);
     }
 }
